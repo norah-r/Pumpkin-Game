@@ -11,12 +11,13 @@ let submitButton;
 let mode = 1;
 let nextLvlButton;
 let gameOver = false;
-let button;
+let home;
 
 function preload() {
   img = loadImage('background3.jpg');
   img1 = loadImage('cropped3.png');
   img2 = loadImage('level2.png');
+  home = loadImage('61972.png');
 }
 
 function setup() {
@@ -25,6 +26,9 @@ function setup() {
 
   img1.resize(350, 400);
   img2.resize(350, 350);
+  home.resize(25,25);
+
+  homeButton = new Button(10,10,home);
 
   submitButton = createButton('Submit');
   submitButton.position(300, 350);
@@ -54,6 +58,11 @@ function draw() {
   fill(0);
   textAlign(LEFT, TOP);
   text(timer, 40, 20);
+
+  homeButton.display();
+  if (homeButton.over()){
+window.location.replace("https://ashnguyenn.github.io/fse100/");
+  }
 
   if (frameCount % 60 == 0 && timer > 0) {
     timer--;
@@ -216,5 +225,43 @@ class Draggable {
       let d = dist(px, py, this.x, this.y);
       return d < 25;
     }
+  }
+}
+
+class Button {  
+  constructor(inX, inY, inImg) {
+    this.x = inX;
+    this.y = inY;
+    this.img = inImg;
+  }
+
+  pressed(mode){
+    if (mode == 1){
+      console.log("pressed 1");
+    } else if (mode == 2){
+      console.log("pressed 2");
+    } else if (mode == 3){
+      console.log("pressed 3");
+    } else if (mode == 4){
+      console.log("pressed 4");
+    }
+  }
+
+  display() {
+    stroke(0);
+    image(this.img, this.x, this.y);
+  }
+
+  over() {
+    if (mouseX > this.x && mouseX < this.x + this.img.width
+        && mouseY >
+        this.y && mouseY < this.y + this.img.height) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  hide(){
+    this.alpha = 0;
   }
 }
