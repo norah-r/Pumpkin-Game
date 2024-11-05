@@ -11,6 +11,7 @@ let submitButton;
 let mode = 1;
 let nextLvlButton;
 let gameOver = false;
+let button;
 
 function preload() {
   img = loadImage('background3.jpg');
