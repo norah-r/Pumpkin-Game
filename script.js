@@ -61,7 +61,7 @@ function draw() {
 
   homeButton.display();
   if (homeButton.over()){
-window.location.replace("https://ashnguyenn.github.io/fse100/");
+window.location.replace("https://73827407-e580-440c-a4d0-c97666ee8ab7-00-1wrd7t6yoprys.kirk.replit.dev/");
   }
 
   if (frameCount % 60 == 0 && timer > 0) {
